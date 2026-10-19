@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f9fc">
+<meta name="description" content="Voxora AI Voice Studio — create, listen to and download expressive AI voiceovers.">
+<title>Voxora — AI Voice Studio</title>
+<style>
+:root{color-scheme:light;--bg:#f7f9fc;--panel:#ffffff;--panel-soft:#f8fafd;--stroke:#e1e5eb;--text:#202124;--muted:#5f6368;--accent:#1a73e8;--accent-dark:#1967d2;--green:#188038;--radius:20px;--shadow:0 4px 18px #20212408}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);-webkit-font-smoothing:antialiased}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.58;cursor:wait}a{color:inherit}.shell{max-width:1240px;margin:auto;padding:0 30px}.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid #e1e5eb}.brand{display:flex;align-items:center;gap:11px;text-decoration:none}.brand-mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#1a73e8;color:#ffffff}.brand-mark svg{width:22px;height:22px}.brand-name{font-weight:850;font-size:20px;letter-spacing:-.8px}.brand-name span{color:var(--accent)!important}.brand-caption{font-size:9px;letter-spacing:1.8px;color:#5f6368;font-weight:750;margin-top:3px}.topright{display:flex;align-items:center;gap:12px}.status-chip{display:inline-flex;align-items:center;gap:7px;border:1px solid #dadce0;border-radius:7px;padding:8px 10px;background:#ffffff;color:#5f6368;font-size:9px;font-weight:750;letter-spacing:.65px}.status-chip .dot{width:6px;height:6px;border-radius:50%;background:#f9ab00}.status-chip.online .dot{background:#188038}.status-chip.offline .dot{background:#d93025}.workspace-label{color:#7c7e75;font-size:10px;font-weight:650}.userbadge{width:34px;height:34px;border:1px solid #dedbd3;background:#e8eaed;color:#3c4043;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800}
+.hero{padding:38px 0 27px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px}.eyebrow{display:flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:1.5px;font-size:9px;font-weight:800;color:#5f6368}.eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}.hero h1{font-size:clamp(32px,4.3vw,49px);letter-spacing:-2.1px;line-height:1.08;margin:13px 0 10px;font-weight:780}.hero h1 span{color:var(--accent)}.hero p{max-width:620px;color:#5f6368;font-size:13px;line-height:1.75;margin:0}.hero-side{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;padding-bottom:2px}.hero-stat{min-width:88px;padding:11px 13px;border:1px solid #e1e5eb;border-radius:10px;background:#f8fafd}.hero-stat b{display:block;font-size:15px;letter-spacing:-.3px}.hero-stat span{display:block;margin-top:4px;color:#5f6368;font-size:9px}
+.layout{display:grid;grid-template-columns:minmax(0,1.38fr) minmax(300px,.78fr);gap:16px;align-items:start}.panel{min-width:0;border:1px solid #e1e5eb;border-radius:20px;background:var(--panel);box-shadow:var(--shadow);overflow:hidden}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 19px;border-bottom:1px solid #eceff3}.head-title{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:780;letter-spacing:-.15px}.head-icon{width:29px;height:29px;border-radius:8px;display:grid;place-items:center;background:#e8f0fe;color:var(--accent-dark);font-size:14px}.tag{color:#5f6368;font-size:8px;font-weight:800;letter-spacing:.8px;border:1px solid #e1e5eb;border-radius:5px;padding:6px 7px;background:#f8fafd}.panel-body{padding:20px}.label-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 9px}.label-row label,.field label{font-size:10px;color:#3c4043;font-weight:800;letter-spacing:.35px}.count{color:#898b82;font-size:10px;font-variant-numeric:tabular-nums}.editor-wrap{position:relative}textarea{display:block;width:100%;min-height:260px;max-height:580px;resize:vertical;background:#fbfbf9;border:1px solid #dadce0;border-radius:11px;padding:15px;color:var(--text);font-size:13px;line-height:1.8;outline:none;transition:border-color .16s,box-shadow .16s}textarea:focus,input:focus,select:focus{border-color:#1a73e8;box-shadow:0 0 0 3px #1a73e817;outline:none}textarea::placeholder{color:#80868b}.editor-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}.toolbar-group{display:flex;gap:15px;align-items:center;flex-wrap:wrap}.text-tool{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:4px 0;color:#5f6368;font-size:10px;font-weight:700}.text-tool:hover{color:var(--accent-dark)}.text-tool svg{width:13px;height:13px}.duration{font-size:10px;color:#5f6368}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}.field label{display:block;margin-bottom:8px}.select-wrap{position:relative}.select-wrap:after{position:absolute;right:12px;top:50%;transform:translateY(-50%);content:'⌄';color:#6f7169;pointer-events:none}.select-wrap select{width:100%;height:43px;appearance:none;border:1px solid #dadce0;border-radius:9px;background:#fbfbf9;color:#202124;padding:0 32px 0 11px;font-size:11px}.hint{color:#70757a;font-size:10px;line-height:1.65;margin:9px 0 0}.format-card{height:43px;display:flex;align-items:center;gap:9px;padding:6px 10px;border:1px solid #dadce0;border-radius:9px;background:#fbfbf9}.format-icon{width:27px;height:27px;border-radius:7px;background:#e8f0fe;color:var(--accent-dark);display:grid;place-items:center;font-size:14px}.format-card strong{display:block;color:#3c4043;font-size:10px}.format-card small{display:block;margin-top:3px;color:#70757a;font-size:9px}.format-badge{margin-left:auto;border:1px solid #ceead6;background:#e6f4ea;border-radius:5px;padding:5px 6px;color:#188038;font-size:8px;font-weight:850;letter-spacing:.5px}.generate{margin-top:20px;width:100%;min-height:49px;display:flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:12px;background:#1a73e8;color:white;font-size:12px;font-weight:800;letter-spacing:.1px;transition:background .15s,transform .15s}.generate:hover{background:#1967d2;transform:translateY(-1px)}.generate svg{width:16px;height:16px}.under-button{margin:11px 0 0;display:flex;justify-content:center;align-items:center;gap:7px;color:#70757a;font-size:9px;text-align:center;line-height:1.6}.secure-dot{width:6px;height:6px;border-radius:50%;background:#459c77}
+.side-stack{display:grid;gap:16px}.preview-body{padding:17px}.ready-card{display:flex;align-items:center;gap:11px;padding:12px;border:1px solid #e1e5eb;background:#f8fafd;border-radius:11px}.voice-avatar{flex:0 0 40px;width:40px;height:40px;display:grid;place-items:center;border:1px solid #d2e3fc;border-radius:10px;background:#e8f0fe;color:#1967d2;font-size:17px}.ready-details{min-width:0;flex:1}.ready-title{font-size:12px;font-weight:800}.ready-sub{margin-top:4px;color:#5f6368;font-size:10px}.ready-pill{padding:5px 7px;border-radius:5px;background:#e6f4ea;color:#188038;font-size:8px;font-weight:800;letter-spacing:.4px}.waveform{height:76px;margin:13px 0 12px;display:flex;align-items:center;justify-content:center;gap:4px;overflow:hidden;border-radius:10px;border:1px solid #eceff3;background:#f8fafd}.waveform span{display:block;width:3px;max-height:49px;height:var(--h);border-radius:4px;background:#4285f4;opacity:.82}.waveform.is-playing span{animation:pulse .72s ease-in-out infinite alternate;animation-delay:var(--d)}@keyframes pulse{from{transform:scaleY(.45);opacity:.45}to{transform:scaleY(1);opacity:1}}.empty-state{text-align:center;padding:6px 8px 12px}.empty-icon{width:44px;height:44px;border:1px solid #d2e3fc;border-radius:12px;display:grid;place-items:center;margin:0 auto 10px;background:#f1f6fe;color:#1967d2;font-size:20px}.empty-state strong{font-size:11px;display:block}.empty-state p{max-width:240px;margin:6px auto 0;color:#5f6368;font-size:10px;line-height:1.7}.progress-wrap{margin:14px 0 8px}.progress-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;color:#55574f;font-size:10px}.progress-meta span:last-child{font-variant-numeric:tabular-nums;color:var(--accent-dark)}.progress-track{height:5px;border-radius:99px;background:#e8eaed;overflow:hidden}.progress-track div{width:0;height:100%;border-radius:99px;background:var(--accent);transition:width .28s}.audio-player{display:block;width:100%;height:40px;margin-top:14px;accent-color:var(--accent)}.download-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:10px;min-height:42px;border-radius:9px;text-decoration:none;border:1px solid #292b25;background:#292b25;color:#ffffff;font-size:10px;font-weight:800;transition:background .15s}.download-btn:hover{background:#3c4043}.download-btn svg{width:14px;height:14px}.audio-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.meta-cell{padding:9px 10px;background:#f8fafd;border:1px solid #eceff3;border-radius:8px;min-width:0}.meta-cell span{display:block;color:#5f6368;font-size:9px}.meta-cell strong{display:block;margin-top:4px;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.history-list{padding:2px 17px}.history-empty{padding:17px 0;color:#70757a;font-size:10px;line-height:1.7;text-align:center}.history-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #efede7}.history-row:last-child{border-bottom:0}.history-left{min-width:0;flex:1}.history-name{font-size:10px;font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.history-meta{margin-top:4px;color:#70757a;font-size:9px}.history-action{flex-shrink:0;text-decoration:none;border:1px solid #e1ded6;background:#f8fafd;border-radius:6px;padding:7px 8px;font-size:9px;font-weight:750;color:#4e5048}.history-action:hover{border-color:#d8a08e;color:#a54d35}.clear-history{border:0;background:none;color:#5f6368;font-size:9px;font-weight:700;padding:5px}.clear-history:hover{color:var(--accent-dark)}.long-tip{border-left:3px solid #c96c50;background:#f8f6f1;padding:13px 14px;color:#707269;font-size:10px;line-height:1.75;border-radius:0 8px 8px 0}.long-tip b{display:block;color:#373932;font-size:10px;margin-bottom:4px}.voice-panel{margin-top:17px}.voice-intro{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px}.voice-intro p{font-size:10px;line-height:1.65;color:#5f6368;margin:6px 0 0;max-width:480px}.voice-search{width:min(270px,100%);display:flex;align-items:center;gap:8px;padding:0 11px;height:39px;border:1px solid #dadce0;border-radius:9px;background:#fbfbf9}.voice-search svg{width:15px;height:15px;color:#5f6368;flex-shrink:0}.voice-search input{width:100%;min-width:0;border:0;background:transparent;outline:0;color:#272923;font-size:10px}.voice-search input:focus{box-shadow:none}.voice-filters{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:14px}.filter-btn{border:1px solid #e1e5eb;background:#ffffff;color:#62645b;border-radius:7px;padding:8px 11px;font-size:10px;font-weight:700}.filter-btn.active{border-color:#292b25;background:#292b25;color:#ffffff}.voice-total{margin-left:auto;color:#70757a;font-size:10px}.voice-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.voice-option{min-width:0;display:flex;align-items:center;gap:9px;text-align:left;padding:10px;border:1px solid #e5e3dc;border-radius:10px;background:#ffffff;color:#272923;transition:border-color .14s,background .14s}.voice-option:hover{border-color:#c7b9ad;background:#fcfaf7}.voice-option.selected{border-color:#c76a50;background:#fbf0eb;box-shadow:inset 0 0 0 1px #c76a5018}.voice-face{width:31px;height:31px;flex:0 0 31px;display:grid;place-items:center;border-radius:9px;background:#eae8e1;color:#53564d;font-size:13px;font-weight:800}.voice-face.female{background:#f5e7e1;color:#a94e36}.voice-face.male{background:#e7eceb;color:#456b65}.voice-info{display:block;min-width:0}.voice-name{display:block;font-size:10px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.voice-tone{display:block;margin-top:3px;color:#5f6368;font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.voice-gender{display:block;margin-top:5px;color:#8a8b82;font-size:8px;text-transform:uppercase;letter-spacing:.4px}.voice-no-results{grid-column:1/-1;padding:24px;text-align:center;color:#5f6368;font-size:11px}.footnote{margin-top:15px;color:#70757a;font-size:9px;line-height:1.7}.footer{padding:23px 0 28px;margin-top:22px;border-top:1px solid #dedcd5;color:#5f6368;font-size:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.hidden{display:none!important}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:10;max-width:calc(100vw - 28px);padding:12px 16px;border:1px solid #46473f;border-radius:9px;background:#292b25;color:#ffffff;font-size:11px;box-shadow:0 8px 30px #0002;text-align:center}
+@media(min-width:1400px){.shell{padding:0 34px}.panel-body{padding:23px}.preview-body{padding:19px}}
+@media(max-width:1000px){.shell{padding:0 20px}.layout{grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr)}.voice-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero-side{max-width:280px}.hero-stat{min-width:78px}}
+@media(max-width:760px){.shell{padding:0 14px}.topbar{height:66px}.status-chip{display:none}.workspace-label{display:none}.hero{padding:28px 0 20px;display:block}.hero h1{font-size:35px;letter-spacing:-1.6px}.hero p{font-size:12px}.hero-side{justify-content:flex-start;margin-top:18px;max-width:none}.hero-stat{flex:1;min-width:0;padding:10px}.layout{grid-template-columns:1fr;gap:13px}.panel{border-radius:13px}.panel-head{padding:14px 15px}.panel-body{padding:15px}.preview-body{padding:14px}.fields{gap:12px}.voice-panel{margin-top:13px}.voice-intro{display:block}.voice-search{width:100%;margin-top:13px}.voice-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.voice-option{padding:9px;gap:7px}.voice-face{width:29px;height:29px;flex-basis:29px}.voice-name{font-size:10px}.footer{margin-top:18px;padding-bottom:22px}}
+@media(max-width:390px){.brand-name{font-size:18px}.brand-caption{font-size:8px}.hero h1{font-size:31px}.hero-stat span{font-size:8px}.fields{grid-template-columns:1fr}.toolbar-group{gap:12px}.duration{width:100%}.voice-grid{grid-template-columns:1fr 1fr}.voice-option{align-items:flex-start}.voice-face{margin-top:1px}.ready-pill{font-size:7px;padding:5px}.audio-meta{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Voxora home">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4M8 6v12M12 3v18M16 7v10M20 10v4"/></svg></span>
+      <span><span class="brand-name">voxora<span>.</span></span><span class="brand-caption" style="display:block">AI VOICE STUDIO</span></span>
+    </a>
+    <div class="topright"><span class="status-chip" id="serverStatus" title="Checks whether the Voxora backend is reachable"><span class="dot" id="statusDot"></span><span id="statusLabel">CHECKING SERVER</span></span><span class="workspace-label">PERSONAL STUDIO</span><div class="userbadge" title="Voice workspace">VS</div></div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-dot"></span> TEXT TO SPEECH · CREATOR WORKSPACE</div>
+        <h1>Make your words<br><span>sound extraordinary.</span></h1>
+        <p>Create clear voiceovers and narration. Choose a voice, adjust the delivery, listen to the result, and download the finished MP3.</p>
+      </div>
+      <div class="hero-side" aria-label="Studio features">
+        <div class="hero-stat"><b>30</b><span>Voice profiles</span></div>
+        <div class="hero-stat"><b>3</b><span>Languages</span></div>
+        <div class="hero-stat"><b>MP3</b><span>Download format</span></div>
+      </div>
+    </section>
+
+    <div class="layout">
+      <section class="panel composer-panel">
+        <div class="panel-head"><div class="head-title"><span class="head-icon">✦</span>Create your voiceover</div><span class="tag">STUDIO</span></div>
+        <div class="panel-body">
+          <div class="label-row"><label for="script">Your script</label><span class="count"><span id="count">0</span> / 30,000 characters</span></div>
+          <textarea id="script" maxlength="30000" spellcheck="true" placeholder="Paste or write your text here…&#10;&#10;বাংলা, English বা Hindi—যে ভাষায় চাই, লিখে শুরু করো।"></textarea>
+          <div class="editor-toolbar">
+            <div class="toolbar-group">
+              <button class="text-tool" type="button" id="sampleBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18"/></svg>Use sample</button>
+              <button class="text-tool" type="button" id="uploadBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4m-4 4 4-4 4 4M4 16v4h16v-4"/></svg>Import .txt</button>
+              <button class="text-tool" type="button" id="clearScript"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M10 11v6m4-6v6M6 7l1 14h10l1-14M9 7V4h6v3"/></svg>Clear</button>
+              <input id="fileInput" class="hidden" type="file" accept=".txt,text/plain">
+            </div>
+            <span class="duration" id="estimate">Estimated duration: —</span>
+          </div>
+
+          <div class="fields">
+            <div class="field"><label for="language">LANGUAGE</label><div class="select-wrap"><select id="language"><option value="Bengali">Bengali · বাংলা</option><option value="English">English</option><option value="Hindi">Hindi · हिन्दी</option></select></div></div>
+            <div class="field"><label for="style">DELIVERY STYLE</label><div class="select-wrap"><select id="style"><option value="Natural, clear and conversational">Natural & clear</option><option value="Warm storytelling narration with expressive phrasing">Storytelling</option><option value="Calm, gentle and reassuring">Calm & gentle</option><option value="Confident, energetic and engaging">Energetic</option><option value="Polished professional documentary narration">Documentary</option><option value="Friendly, warm and approachable">Friendly</option><option value="Dramatic audiobook narration with natural pauses">Audiobook</option></select></div></div>
+            <div class="field"><label for="speed">SPEAKING PACE</label><div class="select-wrap"><select id="speed"><option value="slow">Slow and relaxed</option><option value="normal" selected>Natural pace</option><option value="fast">Fast and lively</option></select></div></div>
+            <div class="field"><label>AUDIO EXPORT</label><div class="format-card"><span class="format-icon">↓</span><span><strong>MP3 audio</strong><small>Ready to play & download</small></span><span class="format-badge">MP3</span></div></div>
+          </div>
+          <input type="hidden" id="voice" value="Kore">
+          <button type="button" class="generate" id="generate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/><path d="m19 16 .9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16Z"/></svg><span id="generateLabel">Generate voiceover</span></button>
+          <div class="under-button"><span class="secure-dot"></span> API key stays on the server · Long text is processed in sections</div>
+        </div>
+      </section>
+
+      <aside class="side-stack">
+        <section class="panel">
+          <div class="panel-head"><div class="head-title"><span class="head-icon">♫</span>Audio preview</div><span class="tag">OUTPUT</span></div>
+          <div class="preview-body">
+            <div class="ready-card"><div class="voice-avatar" id="resultAvatar">♫</div><div class="ready-details"><div class="ready-title" id="selectedVoiceName">Kore</div><div class="ready-sub" id="selectedVoiceMeta">Female · Firm · Bengali</div></div><span class="ready-pill" id="outputState">READY</span></div>
+            <div class="waveform" id="waveform" aria-hidden="true"></div>
+            <div class="empty-state" id="emptyState"><div class="empty-icon">♫</div><strong>Your next voice starts here</strong><p>Generated audio will appear here. Listen again or download the full MP3 to your phone.</p></div>
+            <div id="progressWrap" class="progress-wrap hidden" aria-live="polite"><div class="progress-meta"><span id="progressMessage">Preparing your audio…</span><span id="progressPercent">0%</span></div><div class="progress-track"><div id="progressBar"></div></div></div>
+            <div id="audioResult" class="hidden"><audio id="audioPlayer" class="audio-player" controls preload="metadata"></audio><a id="downloadBtn" class="download-btn" href="#" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></svg>Download MP3 to phone</a><div class="audio-meta"><div class="meta-cell"><span>Selected voice</span><strong id="resultVoice">Kore</strong></div><div class="meta-cell"><span>Text length</span><strong id="resultChars">0 chars</strong></div></div></div>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><div class="head-title"><span class="head-icon">◷</span>Recent projects</div><button id="clearHistory" class="clear-history" type="button">Clear history</button></div>
+          <div class="history-list" id="historyList"><div class="history-empty">Your recent voiceovers will appear here.</div></div>
+        </section>
+        <div class="long-tip"><b>✦ Built for longer scripts</b>Your text is split into smaller requests, then the audio sections are joined into one MP3. Final duration depends on the script, provider limits and account quota.</div>
+      </aside>
+    </div>
+
+    <section class="panel voice-panel" id="voiceLibrary">
+      <div class="panel-head"><div class="head-title"><span class="head-icon">◉</span>Voice library</div><span class="tag">30 PREBUILT VOICES</span></div>
+      <div class="panel-body">
+        <div class="voice-intro"><div><div style="font-size:12px;font-weight:850">Find the right voice for your story</div><p>Explore Gemini voice presets by profile and style. Select a voice for your next generation.</p></div><label class="voice-search" aria-label="Search voices"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="voiceSearch" type="search" placeholder="Search voice or style…" autocomplete="off"></label></div>
+        <div class="voice-filters" role="group" aria-label="Filter voices"><button type="button" class="filter-btn active" data-filter="All">All voices</button><button type="button" class="filter-btn" data-filter="Female">Female</button><button type="button" class="filter-btn" data-filter="Male">Male</button><span class="voice-total" id="voiceTotal">30 voices</span></div>
+        <div class="voice-grid" id="voiceGrid"></div>
+        <div class="footnote">Voice availability may vary by language and Google model access. Female/Male tags are based on Google’s published Chirp 3 HD voice list; the backend in this project selects the matching named Gemini TTS preset. Listen to the generated result to confirm the voice that fits your needs.</div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><span>© 2026 Voxora Studio</span><span>Text to speech · Listen · Download</span></footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const VOICES = [
+  {name:'Achernar',tone:'Soft',gender:'Female'},
+  {name:'Achird',tone:'Friendly',gender:'Male'},
+  {name:'Algenib',tone:'Gravelly',gender:'Male'},
+  {name:'Algieba',tone:'Smooth',gender:'Male'},
+  {name:'Alnilam',tone:'Firm',gender:'Male'},
+  {name:'Aoede',tone:'Breezy',gender:'Female'},
+  {name:'Autonoe',tone:'Bright',gender:'Female'},
+  {name:'Callirrhoe',tone:'Easy-going',gender:'Female'},
+  {name:'Charon',tone:'Informative',gender:'Male'},
+  {name:'Despina',tone:'Smooth',gender:'Female'},
+  {name:'Enceladus',tone:'Breathy',gender:'Male'},
+  {name:'Erinome',tone:'Clear',gender:'Female'},
+  {name:'Fenrir',tone:'Excitable',gender:'Male'},
+  {name:'Gacrux',tone:'Mature',gender:'Female'},
+  {name:'Iapetus',tone:'Clear',gender:'Male'},
+  {name:'Kore',tone:'Firm',gender:'Female'},
+  {name:'Laomedeia',tone:'Upbeat',gender:'Female'},
+  {name:'Leda',tone:'Youthful',gender:'Female'},
+  {name:'Orus',tone:'Firm',gender:'Male'},
+  {name:'Puck',tone:'Upbeat',gender:'Male'},
+  {name:'Pulcherrima',tone:'Forward',gender:'Female'},
+  {name:'Rasalgethi',tone:'Informative',gender:'Male'},
+  {name:'Sadachbia',tone:'Lively',gender:'Male'},
+  {name:'Sadaltager',tone:'Knowledgeable',gender:'Male'},
+  {name:'Schedar',tone:'Even',gender:'Male'},
+  {name:'Sulafat',tone:'Warm',gender:'Female'},
+  {name:'Umbriel',tone:'Easy-going',gender:'Male'},
+  {name:'Vindemiatrix',tone:'Gentle',gender:'Female'},
+  {name:'Zephyr',tone:'Bright',gender:'Female'},
+  {name:'Zubenelgenubi',tone:'Casual',gender:'Male'}
+];
+const STYLES = ['Natural, clear and conversational','Warm storytelling narration with expressive phrasing','Calm, gentle and reassuring','Confident, energetic and engaging','Polished professional documentary narration','Friendly, warm and approachable','Dramatic audiobook narration with natural pauses'];
+let voiceFilter = 'All';
+let historyItems = [];
+let currentJobId = null;
+try { historyItems = JSON.parse(localStorage.getItem('voxoraHistory') || '[]').slice(0,5); } catch { historyItems = []; }
+
+function toast(message){const el=$('toast');el.textContent=message;el.style.display='block';clearTimeout(window._toastTimer);window._toastTimer=setTimeout(()=>el.style.display='none',3600);}
+function getVoice(name){return VOICES.find(v=>v.name===name)||VOICES.find(v=>v.name==='Kore');}
+function selectedVoice(){return getVoice($('voice').value);}
+function formatDuration(seconds){if(!Number.isFinite(seconds)||seconds<=0)return 'Estimated duration: —';if(seconds<60)return `Estimated duration: ~${Math.round(seconds)} sec`;return `Estimated duration: ~${Math.floor(seconds/60)} min ${Math.round(seconds%60)} sec`;}
+function updateCount(){const text=$('script').value;$('count').textContent=text.length.toLocaleString();const pace=$('speed').value==='slow'?11:$('speed').value==='fast'?20:15;const seconds=text.trim().length/pace;$('estimate').textContent=formatDuration(seconds);}
+function updateVoiceSummary(){const v=selectedVoice();$('selectedVoiceName').textContent=v.name;$('selectedVoiceMeta').textContent=`${v.gender} · ${v.tone} · ${$('language').value}`;$('resultAvatar').textContent=v.gender==='Female'?'♀':'♂';$('resultVoice').textContent=v.name;}
+function setProgress(message,percent){$('progressWrap').classList.remove('hidden');$('progressMessage').textContent=message||'Working…';const p=Math.max(0,Math.min(100,Math.round(Number(percent)||0)));$('progressPercent').textContent=`${p}%`;$('progressBar').style.width=`${p}%`;}
+function renderVoices(){const grid=$('voiceGrid');const query=$('voiceSearch').value.trim().toLowerCase();const list=VOICES.filter(v=>(voiceFilter==='All'||v.gender===voiceFilter)&&(!query||`${v.name} ${v.tone} ${v.gender}`.toLowerCase().includes(query)));grid.replaceChildren();$('voiceTotal').textContent=`${list.length} voice${list.length===1?'':'s'}`;if(!list.length){const empty=document.createElement('div');empty.className='voice-no-results';empty.textContent='No matching voice. Try another name or filter.';grid.append(empty);return;}for(const v of list){const b=document.createElement('button');b.type='button';b.className='voice-option'+(v.name===$('voice').value?' selected':'');b.dataset.voice=v.name;b.setAttribute('aria-pressed',String(v.name===$('voice').value));const face=document.createElement('span');face.className='voice-face '+v.gender.toLowerCase();face.textContent=v.gender==='Female'?'♀':'♂';const info=document.createElement('span');info.className='voice-info';const name=document.createElement('span');name.className='voice-name';name.textContent=v.name;const tone=document.createElement('span');tone.className='voice-tone';tone.textContent=v.tone;const gender=document.createElement('span');gender.className='voice-gender';gender.textContent=v.gender;info.append(name,tone,gender);b.append(face,info);b.addEventListener('click',()=>{ $('voice').value=v.name;updateVoiceSummary();renderVoices();toast(`${v.name} selected · ${v.gender} voice profile.`); });grid.append(b);}}
+function persistHistory(){try{localStorage.setItem('voxoraHistory',JSON.stringify(historyItems.slice(0,5)));}catch{}}
+function renderHistory(){const box=$('historyList');if(!historyItems.length){box.innerHTML='<div class="history-empty">Your recent voiceovers will appear here.<br>Generate audio to start your history.</div>';return;}box.replaceChildren();for(const item of historyItems){const row=document.createElement('div');row.className='history-row';const left=document.createElement('div');left.className='history-left';const title=document.createElement('div');title.className='history-name';title.textContent=item.text||'Voiceover';const meta=document.createElement('div');meta.className='history-meta';meta.textContent=`${item.voice} · ${item.language} · ${item.date}`;left.append(title,meta);row.append(left);if(item.jobId){const a=document.createElement('a');a.className='history-action';a.href=`/api/jobs/${encodeURIComponent(item.jobId)}/download?download=1`;a.textContent='Download ↓';a.addEventListener('click',async e=>{try{const res=await fetch(`/api/jobs/${encodeURIComponent(item.jobId)}`);if(!res.ok||(await res.json()).status!=='done'){e.preventDefault();toast('This temporary audio has expired. Generate it again to download.');}}catch{e.preventDefault();toast('Unable to check this audio right now.');}});row.append(a);}box.append(row);}}
+function renderWaveform(){const w=$('waveform');w.replaceChildren();for(let i=0;i<43;i++){const bar=document.createElement('span');const height=11+Math.round(Math.abs(Math.sin(i*1.73)*Math.cos(i*.39))*49);bar.style.setProperty('--h',`${height}px`);bar.style.setProperty('--d',`${(i%11)*38}ms`);w.append(bar);}}
+async function checkBackend(){const chip=$('serverStatus');try{const res=await fetch('/api/health',{cache:'no-store',signal:AbortSignal.timeout(5000)});const data=await res.json();if(!res.ok||data.ok!==true)throw new Error('Backend unavailable');chip.classList.add('online');chip.classList.remove('offline');$('statusLabel').textContent='BACKEND ONLINE';chip.title='The Voxora backend is reachable. API key and model access are checked during generation.';}catch{chip.classList.add('offline');chip.classList.remove('online');$('statusLabel').textContent='BACKEND OFFLINE';chip.title='Cannot reach the Voxora backend. Open the deployed Render service URL to generate audio.';}}
+
+$('script').addEventListener('input',updateCount);
+$('language').addEventListener('change',updateVoiceSummary);
+$('speed').addEventListener('change',updateCount);
+$('voiceSearch').addEventListener('input',renderVoices);
+document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{voiceFilter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(btn=>btn.classList.toggle('active',btn===b));renderVoices();}));
+$('sampleBtn').addEventListener('click',()=>{const lang=$('language').value;$('script').value=lang==='Bengali'?'স্বাগতম Voxora AI Voice Studio-তে। এখানে তুমি তোমার লেখা পছন্দের কণ্ঠে শুনতে এবং MP3 হিসেবে ডাউনলোড করতে পারবে।':lang==='Hindi'?'Voxora AI Voice Studio में आपका स्वागत है। अपने शब्दों को आवाज़ में बदलें और MP3 डाउनलोड करें।':'Welcome to Voxora AI Voice Studio. Turn your words into expressive narration, listen to your finished audio, and download your MP3.';updateCount();toast('Sample script added.');});
+$('clearScript').addEventListener('click',()=>{$('script').value='';updateCount();$('script').focus();toast('Script cleared.');});
+$('uploadBtn').addEventListener('click',()=>$('fileInput').click());
+$('fileInput').addEventListener('change',async e=>{const file=e.target.files&&e.target.files[0];if(!file)return;if(file.size>150000){toast('Please choose a text file under 150 KB.');e.target.value='';return;}try{const text=await file.text();if(text.length>30000){toast('This version supports up to 30,000 characters per job.');return;}$('script').value=text;updateCount();toast('Text file imported.');}catch{toast('Could not read this text file.');}finally{e.target.value='';}});
+$('clearHistory').addEventListener('click',()=>{historyItems=[];persistHistory();renderHistory();toast('Local history cleared.');});
+$('audioPlayer').addEventListener('play',()=>$('waveform').classList.add('is-playing'));
+$('audioPlayer').addEventListener('pause',()=>$('waveform').classList.remove('is-playing'));
+$('audioPlayer').addEventListener('ended',()=>$('waveform').classList.remove('is-playing'));
+
+$('generate').addEventListener('click',async()=>{
+  const text=$('script').value.trim();
+  if(!text){toast('Please enter or import your text first.');$('script').focus();return;}
+  if(text.length>30000){toast('This version supports up to 30,000 characters per job.');return;}
+  const btn=$('generate');btn.disabled=true;$('generateLabel').textContent='Starting secure generation…';currentJobId=null;
+  $('audioResult').classList.add('hidden');$('emptyState').classList.remove('hidden');$('outputState').textContent='WORKING';$('progressWrap').classList.remove('hidden');setProgress('Sending your script to the voice engine…',2);
+  try{
+    const voice=selectedVoice();
+    const response=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text,voice:voice.name,style:$('style').value,speed:$('speed').value,language:$('language').value}),signal:AbortSignal.timeout(45000)});
+    const data=await response.json().catch(()=>({}));if(!response.ok)throw new Error(data.error||'The server could not start this job.');currentJobId=data.jobId;if(!currentJobId)throw new Error('No job ID was returned by the server.');
+    let done=false,checks=0;
+    while(!done){await new Promise(resolve=>setTimeout(resolve,2200));const check=await fetch(`/api/jobs/${encodeURIComponent(currentJobId)}`,{signal:AbortSignal.timeout(20000)});const job=await check.json().catch(()=>({}));if(!check.ok)throw new Error(job.error||'This job is no longer available.');const percent=job.total?((job.progress||0)/job.total)*92:5;setProgress(job.message||'Generating audio…',job.status==='done'?100:Math.max(4,percent));$('generateLabel').textContent=job.status==='done'?'Preparing MP3…':'Creating voiceover…';if(job.status==='error')throw new Error(job.message||'Voice generation failed.');if(job.status==='done'){done=true;break;}checks++;if(checks>1800)throw new Error('This job took too long. Check your Render service and try again.');}
+    const audioUrl=`/api/jobs/${encodeURIComponent(currentJobId)}/download`;const audioCheck=await fetch(audioUrl,{method:'HEAD'});if(!audioCheck.ok)throw new Error('Audio was created but could not be opened.');
+    $('audioPlayer').src=audioUrl;$('audioPlayer').load();$('downloadBtn').href=audioUrl+'?download=1';$('audioResult').classList.remove('hidden');$('emptyState').classList.add('hidden');$('resultVoice').textContent=voice.name;$('resultChars').textContent=text.length.toLocaleString()+' chars';$('outputState').textContent='MP3 READY';setProgress('Your MP3 is ready to play or download.',100);$('generateLabel').textContent='✓ Voiceover ready';
+    const item={jobId:currentJobId,text:text.slice(0,64).replace(/\s+/g,' '),voice:voice.name,language:$('language').value,date:new Date().toLocaleString()};historyItems=[item,...historyItems.filter(x=>x.jobId!==item.jobId)].slice(0,5);persistHistory();renderHistory();toast('Your MP3 is ready — press play or download.');
+  }catch(error){const message=error?.name==='TimeoutError'?'The server took too long to respond. Check Render and try again.':(error?.message||'Generation failed.');setProgress(message,0);$('outputState').textContent='NOT READY';toast(message);$('generateLabel').textContent='↻ Try again';}
+  finally{btn.disabled=false;updateVoiceSummary();}
+});
+
+renderWaveform();renderVoices();renderHistory();updateCount();updateVoiceSummary();checkBackend();
+</script>
+</body>
+</html>
